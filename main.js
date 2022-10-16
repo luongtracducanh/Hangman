@@ -7,7 +7,7 @@ while (true) {
     console.log('Type "play" to play the game, "results" to show the scoreboard, and "exit" to quit:');
 
     switch (input()) {
-        case "play":
+        case 'play':
             const words = ['python', 'java', 'swift', 'javascript'];
             const answer = words[Math.floor(Math.random() * words.length)];
             let current_state = '';
@@ -24,7 +24,8 @@ while (true) {
                     let letter = input('\nInput a letter: ');
                     let error_message = letter.length !== 1 ? 'Please, input a single letter.'
                         : letter.toUpperCase() === letter ? 'Please, enter a lowercase letter from the English alphabet.'
-                            : guessed_answer.includes(letter) ? "You've already guessed this letter." : "";
+                            : guessed_answer.includes(letter) ? "You've already guessed this letter."
+                                : '';
 
                     if (error_message !== '') console.log(error_message);
                     else if (!answer.includes(letter)) {
@@ -44,10 +45,10 @@ while (true) {
                 results[1] += 1;
             }
             break;
-        case "results":
+        case 'results':
             console.log(`You won: ${results[0]} times.\nYou lost: ${results[1]} times.`)
             break;
-        case "exit":
+        case 'exit':
             return;
     }
 }
